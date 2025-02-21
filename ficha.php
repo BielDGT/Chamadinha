@@ -1,6 +1,6 @@
 <?php 
 
-$id_alunos = $_GET['Id_alunos'];
+$id_alunos = $_GET['id_alunos'];
 
 $dsn = 'mysql:dbname=db_chamada;host=127.0.0.1';
 $user = 'root';
@@ -8,13 +8,13 @@ $password = '';
 
 $banco = new PDO($dsn, $user, $password);
 
-$select = "SELECT * FROM tb_info_alunos where Id_alunos = " . $id_alunos;
+$select = "SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos =  " . $id_alunos;
 
 $dados = $banco->query($select)->fetch();
 
-echo '<pre>';
-var_dump($dados)
-
+// echo '<pre>';
+// var_dump($dados)
+//SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos = 4;
 
 
 ?>
@@ -47,11 +47,11 @@ var_dump($dados)
 
 <main class="container text-center my-5">
 
-    <img src="./img/Mídia.jpg" alt="imagem de perfil" class="img-thumbnail">
+    <img src="./img/<?php echo $dados['img'] ?>" alt="imagem de perfil" class="img-thumbnail">
 
     <form action="#">
         <label for="nome">Nome</label>
-        <input type="text" value="David" disabled class="form-control">
+        <input type="text" value="<?php echo $dados['nome'] ?>" disabled class="form-control">
 
         <div class="row mt-2">
             <div class="col">
