@@ -23,8 +23,9 @@
 -->
 
     <main class="container text-center my-5">
-        <h2>Formulario de Cadastro</h2>
-        <form action="./aluno_cad.php" method="POST">
+        <h2>Formulario de Update</h2>
+        <form action="./aluno_update.php" method="POST">
+            <input type="hidden" name="id">
             <input type="text" placeholder="Nome" class="form-control" name="nome">
             <input type="number" placeholder="telefone" class="form-control" name="tel">
             <input type="email" placeholder="E-mail" class="form-control" name="email">

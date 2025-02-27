@@ -47,7 +47,7 @@ $dados = $banco->query($select)->fetch();
 
 <main class="container text-center my-5">
 
-    <img src="./img/<?php echo $dados['img'] ?>" alt="imagem de perfil" class="img-thumbnail">
+    <img src="./img/img/<?php echo $dados['img'] ?>" alt="imagem de perfil" class="img-thumbnail">
 
     <form action="#">
         <label for="nome">Nome</label>
