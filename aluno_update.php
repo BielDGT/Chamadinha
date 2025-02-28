@@ -4,9 +4,7 @@ echo '<h1> Update de Aluno </h1>';
 
 echo '<pre>';
 var_dump($_POST);
-
-$nomeFormulario = $_POST['nome'];
-
+var_dump($_GET);
 
 $dsn = 'mysql:dbname=db_chamada;host=127.0.0.1';
 $user = 'root';
@@ -14,11 +12,15 @@ $password = '';
 
 $banco = new PDO($dsn, $user, $password);
 
+$idForm = $_POST['id'];
+$nomeFormulario = $_POST['nome'];
+
 $insert = 'UPDATE tb_alunos SET nome = :nome WHERE id = :id';
 
 $box = $banco->prepare($insert);
 
 $box->execute([ 
+    ':id' => $idForm,
     ':nome' => $nomeFormulario,
 ]);
 
