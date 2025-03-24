@@ -12,8 +12,8 @@ $select = "SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOI
 
 $dados = $banco->query($select)->fetch();
 
-// echo '<pre>';
-// var_dump($dados)
+echo '<pre>';
+var_dump($dados)
 //SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos = 4;
 
 
